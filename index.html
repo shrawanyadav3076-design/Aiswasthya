@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Swasthya - आपका AI हेल्थ साथी</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f0fdfd;color:#333}
+header{background:#0d9488;color:white;padding:12px 20px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:999;flex-wrap:wrap}
+header img{width:45px;height:45px;border-radius:50%;background:white;object-fit:cover}
+nav{margin-left:auto;display:flex;gap:15px;align-items:center;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-weight:500;font-size:14px}
+.lang-select{padding:6px 8px;border-radius:8px;border:none;font-weight:bold;color:#0d9488}
+.hero{background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url('hero.jpg') center/cover;height:500px;display:flex;align-items:center;justify-content:center;color:white;text-align:center;padding:20px}
+.hero h1{font-size:42px;margin-bottom:10px}
+.btn{background:#0d9488;color:white;padding:12px 26px;border:none;border-radius:10px;text-decoration:none;display:inline-block;margin-top:15px;font-weight:bold;cursor:pointer}
+.btn:hover{background:#0f766e}
+.container{max-width:1150px;margin:50px auto;padding:20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:25px}
+.card{background:white;padding:25px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.08);text-align:center;transition:0.3s}
+.card:hover{transform:translateY(-5px)}
+footer{background:#0d9488;color:white;text-align:center;padding:25px;margin-top:50px}
+</style>
+</head>
+<body>
+<header>
+  <img src="logo.png" alt="AI Swasthya Logo">
+  <h2 data-lang="site_title">AI Swasthya</h2>
+  <nav>
+    <a href="index.html" data-lang="home">होम</a>
+    <a href="about.html" data-lang="about">हमारे बारे में</a>
+    <a href="blog.html" data-lang="blog">ब्लॉग</a>
+    <a href="chatbot.html" data-lang="ai_doctor">AI डॉक्टर</a>
+    <a href="calculator.html" data-lang="bmi">BMI कैलकुलेटर</a>
+    <a href="contact.html" data-lang="contact">संपर्क</a>
+    <select class="lang-select" id="langSelect" onchange="changeLang(this.value)">
+      <option value="hi">हिंदी</option>
+      <option value="en">English</option>
+      <option value="mr">मराठी</option>
+      <option value="te">తెలుగు</option>
+      <option value="gu">ગુજરાતી</option>
+      <option value="or">ଓଡ଼ିଆ</option>
+      <option value="ne">नेपाली</option>
+    </select>
+  </nav>
+</header>
+
+<div class="hero">
+  <div>
+    <h1 data-lang="hero_title">AI Swasthya में आपका स्वागत है</h1>
+    <p data-lang="hero_sub">24x7 AI डॉक्टर से मुफ्त सलाह लें</p>
+    <a href="chatbot.html" class="btn" data-lang="hero_btn">अभी AI डॉक्टर से बात करें</a>
+  </div>
+</div>
+
+<div class="container">
+  <h2 style="text-align:center;margin-bottom:30px;font-size:32px;color:#0d9488;" data-lang="features">हमारी सुविधाएं</h2>
+  <div class="cards">
+    <div class="card"><h3 style="font-size:22px;margin-bottom:10px;">🤖 AI डॉक्टर</h3><p data-lang="f1">अपने लक्षण बताएं और तुरंत AI से सलाह पाएं</p><a href="chatbot.html" class="btn" data-lang="start">शुरू करें</a></div>
+    <div class="card"><h3 style="font-size:22px;margin-bottom:10px;">📊 BMI कैलकुलेटर</h3><p data-lang="f2">1 मिनट में अपना BMI चेक करें</p><a href="calculator.html" class="btn" data-lang="calc">कैलकुलेट करें</a></div>
+    <div class="card"><h3 style="font-size:22px;margin-bottom:10px;">📚 हेल्थ ब्लॉग</h3><p data-lang="f3">रोजाना नए हेल्थ टिप्स पढ़ें</p><a href="blog.html" class="btn" data-lang="read">पढ़ें</a></div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 AI Swasthya | बनाया गया: Shrawan Yadav | Kondagaon, Chhattisgarh</p>
+  <p><a href="privacy.html" style="color:white">Privacy Policy</a> | <a href="contact.html" style="color:white">Contact</a></p>
+</footer>
+
+<script>
+const translations = {
+  hi: {site_title:"AI Swasthya",home:"होम",about:"हमारे बारे में",blog:"ब्लॉग",ai_doctor:"AI डॉक्टर",bmi:"BMI कैलकुलेटर",contact:"संपर्क",hero_title:"AI Swasthya में आपका स्वागत है",hero_sub:"24x7 AI डॉक्टर से मुफ्त सलाह लें",hero_btn:"अभी AI डॉक्टर से बात करें",features:"हमारी सुविधाएं",f1:"अपने लक्षण बताएं और तुरंत AI से सलाह पाएं",f2:"1 मिनट में अपना BMI चेक करें",f3:"रोजाना नए हेल्थ टिप्स पढ़ें",start:"शुरू करें",calc:"कैलकुलेट करें",read:"पढ़ें"},
+  en: {site_title:"AI Swasthya",home:"Home",about:"About Us",blog:"Blog",ai_doctor:"AI Doctor",bmi:"BMI Calculator",contact:"Contact",hero_title:"Welcome to AI Swasthya",hero_sub:"Get Free 24x7 AI Doctor Consultation",hero_btn:"Talk to AI Doctor Now",features:"Our Features",f1:"Tell your symptoms and get instant AI advice",f2:"Check your BMI in 1 minute",f3:"Read daily health tips",start:"Start Now",calc:"Calculate",read:"Read"},
+  mr: {site_title:"AI Swasthya",home:"होम",about:"आमच्याबद्दल",blog:"ब्लॉग",ai_doctor:"AI डॉक्टर",bmi:"BMI कॅल्क्युलेटर",contact:"संपर्क",hero_title:"AI Swasthya मध्ये आपले स्वागत आहे",hero_sub:"24x7 AI डॉक्टरकडून मोफत सल्ला घ्या",hero_btn:"आता AI डॉक्टरशी बोला",features:"आमच्या सुविधा",f1:"तुमची लक्षणे सांगा आणि त्वरित सल्ला मिळवा",f2:"1 मिनिटात तुमचा BMI तपासा",f3:"रोज नवीन हेल्थ टिप्स वाचा",start:"सुरू करा",calc:"कॅल्क्युलेट करा",read:"वाचा"},
+  te: {site_title:"AI Swasthya",home:"హోమ్",about:"మా గురించి",blog:"బ్లాగ్",ai_doctor:"AI డాక్టర్",bmi:"BMI కాలిక్యులేటర్",contact:"సంప్రదించండి",hero_title:"AI Swasthya కు స్వాగతం",hero_sub:"24x7 AI డాక్టర్ నుండి ఉచిత సలహా పొందండి",hero_btn:"ఇప్పుడే AI డాక్టర్ తో మాట్లాడండి",features:"మా సేవలు",f1:"మీ లక్షణాలను చెప్పండి మరియు తక్షణ సలహా పొందండి",f2:"1 నిమిషంలో మీ BMI ని తనిఖీ చేయండి",f3:"రోజూ ఆరోగ్య చిట్కాలను చదవండి",start:"ప్రారంభించండి",calc:"లెక్కించండి",read:"చదవండి"},
+  gu: {site_title:"AI Swasthya",home:"હોમ",about:"અમારા વિશે",blog:"બ્લોગ",ai_doctor:"AI ડોક્ટર",bmi:"BMI કેલ્ક્યુલેટર",contact:"સંપર્ક",hero_title:"AI Swasthya માં આપનું સ્વાગત છે",hero_sub:"24x7 AI ડોક્ટર પાસેથી મફત સલાહ લો",hero_btn:"હમણાં AI ડોક્ટર સાથે વાત કરો",features:"અમારી સુવિધાઓ",f1:"તમારા લક્ષણો જણાવો અને તરત સલાહ મેળવો",f2:"1 મિનિટમાં તમારું BMI ચેક કરો",f3:"રોજ નવી હેલ્થ ટિપ્સ વાંચો",start:"શરૂ કરો",calc:"ગણતરી કરો",read:"વાંચો"},
+  or: {site_title:"AI Swasthya",home:"ହୋମ",about:"ଆମ ବିଷୟରେ",blog:"ବ୍ଲଗ",ai_doctor:"AI ଡାକ୍ତର",bmi:"BMI କାଲକୁଲେଟର",contact:"ଯୋଗାଯୋଗ",hero_title:"AI Swasthya କୁ ସ୍ୱାଗତ",hero_sub:"24x7 AI ଡାକ୍ତରଙ୍କ ଠାରୁ ମାଗଣା ପରାମର୍ଶ ନିଅନ୍ତୁ",hero_btn:"ବର୍ତ୍ତମାନ AI ଡାକ୍ତରଙ୍କ ସହ କଥା ହୁଅନ୍ତୁ",features:"ଆମର ସୁବିଧା",f1:"ଆପଣଙ୍କ ଲକ୍ଷଣ କୁହନ୍ତୁ ଏବଂ ପରାମର୍ଶ ପାଆନ୍ତୁ",f2:"1 ମିନିଟରେ BMI ଯାଞ୍ଚ କରନ୍ତୁ",f3:"ପ୍ରତିଦିନ ହେଲ୍ଥ ଟିପ୍ସ ପଢନ୍ତୁ",start:"ଆରମ୍ଭ କରନ୍ତୁ",calc:"ଗଣନା କରନ୍ତୁ",read:"ପଢନ୍ତୁ"},
+  ne: {site_title:"AI Swasthya",home:"गृहपृष्ठ",about:"हाम्रो बारेमा",blog:"ब्लग",ai_doctor:"AI डाक्टर",bmi:"BMI क्याल्कुलेटर",contact:"सम्पर्क",hero_title:"AI Swasthya मा स्वागत छ",hero_sub:"24x7 AI डाक्टरबाट निःशुल्क सल्लाह लिनुहोस्",hero_btn:"अहिले AI डाक्टरसँग कुरा गर्नुहोस्",features:"हाम्रा सुविधाहरू",f1:"आफ्ना लक्षणहरू बताउनुहोस् र तुरुन्त सल्लाह पाउनुहोस्",f2:"1 मिनेटमा आफ्नो BMI जाँच गर्नुहोस्",f3:"दैनिक स्वास्थ्य टिप्स पढ्नुहोस्",start:"सुरु गर्नुहोस्",calc:"गणना गर्नुहोस्",read:"पढ्नुहोस्"}
+};
+function changeLang(lang){
+  localStorage.setItem("site_lang", lang);
+  document.querySelectorAll("[data-lang]").forEach(el=>{
+    let key = el.getAttribute("data-lang");
+    if(translations[lang][key]) el.innerText = translations[lang][key];
+  });
+}
+window.onload = ()=>{
+  let saved = localStorage.getItem("site_lang") || "hi";
+  document.getElementById("langSelect").value = saved;
+  changeLang(saved);
+}
+</script>
+</body>
+  </html>
