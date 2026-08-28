@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>BMI - AI Swasthya</title>
+<style>body{background:#f0fdfd;font-family:'Poppins';display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}.box{max-width:420px;width:90%;background:white;padding:35px;border-radius:15px;text-align:center;box-shadow:0 5px 15px rgba(0,0,0,0.1)} input{width:90%;padding:12px;margin:12px 0;border:2px solid #0d9488;border-radius:10px} button{background:#0d9488;color:white;padding:14px 30px;border:none;border-radius:10px;font-weight:bold;cursor:pointer}</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"></head>
+<body>
+<div class="box">
+<h2 style="color:#0d9488;">BMI कैलकुलेटर</h2>
+<input type="number" id="height" placeholder="लंबाई cm में">
+<input type="number" id="weight" placeholder="वजन kg में">
+<button onclick="calc()">BMI निकालें</button>
+<h3 id="result" style="margin-top:20px;color:#0d9488;"></h3>
+<a href="index.html" style="display:block;margin-top:20px;color:#0d9488;">← Home</a>
+</div>
+<script>
+function calc(){
+  let h=document.getElementById("height").value/100;
+  let w=document.getElementById("weight").value;
+  if(h==0||w==0){alert("सही जानकारी भरें");return;}
+  let bmi=(w/(h*h)).toFixed(1);
+  let status=bmi<18.5?"कम वजन":bmi<25?"सामान्य":bmi<30?"ज्यादा वजन":"मोटापा";
+  document.getElementById("result").innerText=`आपका BMI: ${bmi} - ${status}`;
+}
+</script>
+</body></html>
