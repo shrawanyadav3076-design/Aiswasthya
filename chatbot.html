@@ -1,60 +1,30 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<title>AI डॉक्टर - AI Swasthya</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body{background:#f0fdfd;font-family:'Poppins',sans-serif;margin:0}
-.chatbox{max-width:750px;margin:40px auto;background:white;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);overflow:hidden}
-.header{background:#0d9488;color:white;padding:18px;text-align:center;font-size:22px;font-weight:bold}
-.messages{height:460px;overflow-y:auto;padding:20px;background:#f9fafb;display:flex;flex-direction:column}
-.msg{margin:12px 0;padding:12px 18px;border-radius:12px;max-width:80%;line-height:1.6;word-wrap:break-word}
-.user{background:#0d9488;color:white;align-self:flex-end}
-.ai{background:#e0f2fe;color:#0c4a6e;align-self:flex-start}
-.input-area{display:flex;padding:15px;border-top:1px solid #ddd;background:white}
-.input-area input{flex:1;padding:12px;border:2px solid #0d9488;border-radius:10px;font-size:16px}
-.input-area button{background:#0d9488;color:white;border:none;padding:12px 25px;border-radius:10px;margin-left:10px;cursor:pointer;font-weight:bold}
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-</head>
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>AI डॉक्टर - AI Swasthya</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>body{background:#f0fdfd;font-family:'Poppins',sans-serif;margin:0}.chatbox{max-width:750px;margin:20px auto;background:white;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);overflow:hidden}.header{background:#0d9488;color:white;padding:18px;text-align:center;font-size:22px;font-weight:bold}.messages{height:460px;overflow-y:auto;padding:20px;background:#f9fafb;display:flex;flex-direction:column}.msg{margin:12px 0;padding:12px 18px;border-radius:12px;max-width:80%;line-height:1.6}.user{background:#0d9488;color:white;align-self:flex-end}.ai{background:#e0f2fe;color:#0c4a6e;align-self:flex-start}.input-area{display:flex;padding:15px;border-top:1px solid #ddd;background:white;gap:10px}.input-area input{flex:1;padding:12px;border:2px solid #0d9488;border-radius:10px;font-size:16px}.input-area button{background:#0d9488;color:white;border:none;padding:12px 25px;border-radius:10px;cursor:pointer;font-weight:bold}</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"></head>
 <body>
 <div class="chatbox">
-  <div class="header">🤖 AI डॉक्टर - AI Swasthya</div>
-  <div class="messages" id="messages">
-    <div class="msg ai">नमस्ते! मैं AI डॉक्टर हूं। अपना सवाल पूछिए।<br><small>नोट: ये सिर्फ जानकारी है, गंभीर होने पर डॉक्टर से मिलें।</small></div>
-  </div>
-  <div class="input-area">
-    <input type="text" id="userInput" placeholder="जैसे: बुखार का इलाज क्या है?" onkeypress="if(event.key==='Enter') sendMsg()">
-    <button onclick="sendMsg()">भेजें</button>
-  </div>
+<div class="header">🤖 AI डॉक्टर - AI Swasthya</div>
+<div class="messages" id="messages"><div class="msg ai">नमस्ते! मैं AI डॉक्टर हूं। अपना सवाल पूछिए।</div></div>
+<div class="input-area"><input type="text" id="userInput" placeholder="जैसे: पेट दर्द का इलाज?" onkeypress="if(event.key==='Enter') sendMsg()"><button onclick="sendMsg()">भेजें</button></div>
 </div>
 <script>
-const API_KEY = "AQ.Ab8RN6KdEymUBXM7GAzZweCa8ga1M-oOS06ns7ASIudZnMzGAA";
+// YAHAN NAYI KEY PASTE KARO
+const API_KEY = " ";
+
 async function sendMsg(){
-  let input = document.getElementById("userInput");
-  let msg = input.value.trim();
-  if(msg==="") return;
-  let messagesDiv = document.getElementById("messages");
-  messagesDiv.innerHTML += `<div class="msg user">${msg}</div>`;
-  input.value="";
-  let loadingId = "loading_"+Date.now();
-  messagesDiv.innerHTML += `<div class="msg ai" id="${loadingId}">AI सोच रहा है... ⏳</div>`;
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
-  try{
-    let res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,{
-      method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({contents:[{parts:[{text:`Tum AI Swasthya ke AI doctor ho. User ke sawal ka jawab Hindi me 4-5 line me do. Last me likho 'Note: Ye jankari hai, doctor se salah le.' Sawal: ${msg}`}]}]})
-    });
-    let data = await res.json();
-    if(data.error) throw new Error(data.error.message);
-    let reply = data.candidates[0].content.parts[0].text;
-    document.getElementById(loadingId).innerText = reply;
-  }catch(e){
-    document.getElementById(loadingId).innerText = "Error: "+e.message+" | API Key sahi se paste karo aur Google AI Studio me API Enable karo.";
-  }
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+let input=document.getElementById("userInput");let msg=input.value.trim();if(msg==="")return;
+let box=document.getElementById("messages");box.innerHTML+=`<div class="msg user">${msg}</div>`;input.value="";
+let id="a"+Date.now();box.innerHTML+=`<div class="msg ai" id="${id}">AI सोच रहा है... ⏳</div>`;box.scrollTop=box.scrollHeight;
+try{
+let r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`,{
+method:"POST",headers:{"Content-Type":"application/json"},
+body:JSON.stringify({contents:[{parts:[{text:`You are AI Swasthya, a helpful health assistant. Answer in Hindi in simple 4-5 lines with home remedy. Add at end: Note ye jankari hai, doctor se milen. Question: ${msg}`}]}]})});
+let d=await r.json();console.log(d);
+if(d.error) throw new Error(d.error.message);
+let reply=d.candidates[0].content.parts[0].text;
+document.getElementById(id).innerText=reply;
+}catch(e){document.getElementById(id).innerText="Error: "+e.message+" | Nayi API key banao aistudio.google.com se";}
+box.scrollTop=box.scrollHeight;
 }
 </script>
-</body>
-</html>
+</body></html>
