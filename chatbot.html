@@ -47,7 +47,7 @@ box.innerHTML+=`<div class="msg ai" id="${id}">⏳ AI डॉक्टर सो�
 box.scrollTop=box.scrollHeight;
 
 try{
-let res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,{
+let res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`,{
 method:'POST',
 headers:{'Content-Type':'application/json'},
 body:JSON.stringify({
