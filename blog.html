@@ -1,29 +1,14 @@
-<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>हेल्थ ब्लॉग - AI Swasthya</title>
-<style>body{font-family:'Poppins';background:#f0fdfd;margin:0}.container{max-width:900px;margin:30px auto;padding:20px}.article{background:white;padding:25px;margin-bottom:25px;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,0.08)} h1{color:#0d9488;text-align:center;margin-bottom:30px}</style>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"></head>
-<body>
-<div class="container">
-<h1>📚 हेल्थ ब्लॉग - AI Swasthya</h1>
-<div class="article">
-  <h2>🥶 सर्दी में इम्यूनिटी कैसे बढ़ाएं?</h2>
-  <p>रोज गर्म पानी, अदरक-तुलसी की चाय, विटामिन C लें। सुबह 20 मिनट धूप लें।</p>
-  <small>By Shrawan Yadav | Kondagaon, Chhattisgarh</small>
-</div>
-<div class="article">
-  <h2>💧 पानी पीने के 5 फायदे</h2>
-  <p>3-4 लीटर पानी से त्वचा निखरती है, पाचन अच्छा होता है, वजन कम होता है।</p>
-  <small>By Shrawan Yadav</small>
-</div>
-<div class="article">
-  <h2>😴 नींद पूरी न होने के नुकसान</h2>
-  <p>7-8 घंटे की नींद जरूरी है। कम नींद से मोटापा और चिड़चिड़ापन होता है।</p>
-  <small>By Shrawan Yadav</small>
-</div>
-<div class="article">
-  <h2>🧘 योग के फायदे</h2>
-  <p>रोज 20 मिनट योग से मन शांत रहता है और BP कंट्रोल रहता है।</p>
-  <small>By Shrawan Yadav</small>
-</div>
-<!-- NAYA ARTICLE ADD KARNE KE LIYE UPAR WALA DIV COPY PASTE KARO -->
-</div>
-</body></html>
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Blog - SwasthyaSalah</title><script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-gray-50"><header class="bg-white shadow p-4 flex justify-between"><a href="index.html" class="font-bold text-xl text-[#0e4a8a]">SwasthyaSalah</a><a href="index.html">Home</a></header>
+<div class="max-w-5xl mx-auto p-4 mt-6"><h1 class="text-3xl font-bold mb-4">Health Blog</h1><div id="blogList" class="grid md:grid-cols-3 gap-4"></div></div>
+<script>
+const blogs = [
+{title:"Pet Dard Ka Gharelu Ilaj",desc:"Ajwain, hing se pet dard kaise thik kare",content:"Pet dard me garam pani me ajwain..."},
+{title:"Sugar Control Kaise Kare",desc:"Madhumeh ke 5 aasan upay",content:"Karela juice, methi dana..."},
+{title:"Sardi Jukam Ka Ilaj",desc:"Adrak tulsi se sardi bhagao",content:"Adrak wali chai..."},
+{title:"Wajan Kaise Ghataye",desc:"Motapa kam karne ke tarike",content:"Subah garam pani..."},
+];
+const list = document.getElementById('blogList');
+blogs.forEach(b=>{list.innerHTML+=`<div class="bg-white p-4 rounded-xl shadow"><h3 class="font-bold">${b.title}</h3><p class="text-sm text-gray-500 mt-1">${b.desc}</p><button onclick="alert('${b.content}')" class="mt-2 text-blue-600 font-bold">Padho -></button></div>`});
+// NAYA ARTICLE ADD KARNA HO TO upar blogs array me {title, desc, content} add kar do, automatic dikhega
+</script></body></html>
